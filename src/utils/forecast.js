@@ -13,7 +13,8 @@ const forecast=function(lat,long,callback){
 			callback('Unable to find location')
 		}
 		else{
-			callback(undefined,body.daily.data[0].summary+' It is currently '+body.currently.temperature+ ' degrees out. There is '+body.currently.precipProbability+'% chance of rain')
+			console.log(body.daily.data[0].apparentTemperatureHigh)
+			callback(undefined,body.daily.data[0].summary+' It is currently '+body.currently.temperature+ ' degrees out. There is '+body.currently.precipProbability+'% chance of rain.Temperature can be as high as '+body.daily.data[0].temperatureMax+ 'and lowset temperature recorded is '+body.daily.data[0].temperatureMin)
 		}
 	
 	})
