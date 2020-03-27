@@ -13,6 +13,8 @@ console.log(path.join(__dirname,'../')) //__dirname is same as above but the sec
 // console.log(__filename) //provides absolute path to the current file
 
 const app=express() //storing
+const port=process.env.PORT || 3000 //setting up a dynamic port for deployment and the static 3000 port for local server
+
 
 //define paths for express config
 const publicDirectoryPath=path.join(__dirname,'../public')
@@ -121,8 +123,8 @@ app.get('*',(req,res)=>{
 }) //this needs to come last because the express server look through the incoming request in order first it checks the public folder because we have set it first above.Then it checks all the app.get() instances and if it finds the url it renders the data;if not,it shows 404 page
 
 
-app.listen(3000,()=>{
-	console.log("server is up on port 3000")
+app.listen(port,()=>{
+	console.log("server is up on port "+port)
 })
 //app.listen('port,callback) it takes 2 argument port and callback because starting a server is an asynchrounous process.
 

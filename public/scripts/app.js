@@ -1,6 +1,6 @@
 let getWeather=function(search){
 
-   datas= fetch('http://localhost:3000/weather?address='+search).then((res)=>{
+   datas= fetch('/weather?address='+search).then((res)=>{
     return res.json().then((data)=>{
         if(data.error){
             return {error:data.error}
